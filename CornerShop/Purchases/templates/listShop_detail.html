@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br/>   
+    <section>
+    	<h1 style="font-size: 34px;">{{ lista.idListShop }}</h1>
+    	  	
+    </section>
+    <section>
+	    <div class="panel radius">
+	    	<table style="width:100%; ">
+		    	<thead>
+		    		<tr>
+		    			<th width="10" >ListShop</th>
+		    			
+		    			<th width="50">Articulo</th>
+		    			<th width="50">Cantidad</th>
+		    			<th width="50">Costo Unitario</th>
+		    			<th width="50">Subtotal</th>
+		    			<th width="50">Estado</th>
+		  			</tr>
+		    	</thead>
+	  			
+	  				{% for obj in lista %} 
+	  				<tr>
+	    				<td>{{ obj.idListShop }}</td>
+	    				<td>{{ obj.idArticle }}</td>
+	    				<td>{{ obj.quantity }}</td>
+	    				<td>{{ obj.idArticle.unitCost }} </td>
+	    				<td>{{ obj.subtotal }} </td>
+	    				<td>{{ obj.state }} </td>
+
+	    				
+	    			</tr>	
+	    			{% empty %}
+	    				<div>No hay tracks todavía.</div>
+	            {% endfor %}
+	  			
+			</table>  
+			<a href="{% url 'listShop' %}" class="button expand  round ">Volver a lista de lista de Compras</a>      	        	      
+	    </div>
+    </section> 
+{% endblock %}

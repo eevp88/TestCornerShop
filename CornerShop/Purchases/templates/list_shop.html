@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2> List Shop </h2>
+     <section>
+            <div class="panel radius">
+                <table style="width:100%; ">
+                        <thead>
+                                <tr>
+                                        
+                                        <th width="70">ID</th>
+                                        <th width="80">Shopper </th>
+                                </tr>
+                        </thead>
+                                
+                                        {% for listshop in object_list %}
+                                        <tr>
+					                       <td><a href="{{ listshop.pk }}">{{ listshop.id }}</a> </td>
+                                           <td>{{ listshop.idShopper }} </td>
+                                       
+					</tr>
+                                {% empty %}
+                                        <div>No hay Listas de Compra  todavía.</div>
+                    {% endfor %}
+                                
+                        </table>
+                        <a href="{% url 'listShop' %}" class="button expand  round ">Volver al Panel  Principal</a>
+            </div>
+    </section>
+   
+  
+{% endblock %}
